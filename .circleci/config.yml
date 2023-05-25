@@ -39,9 +39,9 @@ jobs:
       - deploy:
           name: Deploy docker image
           command: |
+            docker images
 #            docker login -u prathamkrishna
 #            ${dckr_pat_nVHy6J1OOtO2sEOqJzwuchHsLVQ}
-            docker images
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
