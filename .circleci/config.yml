@@ -36,6 +36,12 @@ jobs:
           name: Build application Docker image
           command: |
             docker build -t app .
+      - deploy:
+          name: Deploy docker image
+          command: |
+#            docker login -u prathamkrishna
+#            ${dckr_pat_nVHy6J1OOtO2sEOqJzwuchHsLVQ}
+            docker images
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
