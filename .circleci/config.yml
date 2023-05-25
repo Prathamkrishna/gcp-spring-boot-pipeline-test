@@ -39,7 +39,7 @@ jobs:
       - deploy:
           name: Deploy docker image
           command: |
-            docker login -u prathamkrishna -p dckr_pat_nVHy6J1OOtO2sEOqJzwuchHsLVQ
+            docker login -u prathamkrishna -p $password
             docker tag app:latest prathamkrishna/dockerrepo:gcp-spring-pipeline
             docker push prathamkrishna/dockerrepo:gcp-spring-pipeline
 
