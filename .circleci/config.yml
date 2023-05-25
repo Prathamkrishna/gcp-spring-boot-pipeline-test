@@ -40,8 +40,10 @@ jobs:
           name: Deploy docker image
           command: |
             docker images
-#            docker login -u prathamkrishna
-#            ${dckr_pat_nVHy6J1OOtO2sEOqJzwuchHsLVQ}
+            docker login -u prathamkrishna
+            ${dckr_pat_nVHy6J1OOtO2sEOqJzwuchHsLVQ}
+            docker tag app:latest prathamkrishna/dockerrepo:gcp-spring-pipeline
+            docker push prathamkrishna/dockerrepo:gcp-spring-pipeline
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
