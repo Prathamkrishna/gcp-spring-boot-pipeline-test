@@ -6,14 +6,13 @@ version: 2.1
 # See: https://circleci.com/docs/configuration-reference/#jobs
 jobs:
   # Below is the definition of your job to build and test your app, you can rename and customize it as you want.
-  build:
+  build-app:
     # These next lines define a Docker executor: https://circleci.com/docs/executor-types/
     # You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # Be sure to update the Docker image tag below to openjdk version of your application.
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/openjdk
     docker:
       - image: amazoncorretto:17
-#      - image: docker:17.05.0-ce-git
     # Add steps to the job
     # See: https://circleci.com/docs/configuration-reference/#steps
     steps:
@@ -30,6 +29,14 @@ jobs:
             mkdir app
             cp target/full-pipeline-app-0.0.1-SNAPSHOT.jar app/
             ls app/
+
+  build-docker:
+    docker:
+      - image: docker:17.05.0-ce-git
+    steps:
+      - run:
+          name: Check app
+          command: ls app/
 #      - restore_cache:
 #          keys:
 #            - v1-{{ .Branch }}
@@ -60,4 +67,4 @@ workflows:
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - build
+      - build-app
