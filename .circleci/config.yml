@@ -29,14 +29,9 @@ jobs:
             mkdir app
             cp target/full-pipeline-app-0.0.1-SNAPSHOT.jar app/
             ls app/
-
-  build-docker:
-    docker:
-      - image: docker:17.05.0-ce-git
-    steps:
       - run:
-          name: Check app
-          command: ls
+          name: Check docker version
+          command: docker -v
 #      - restore_cache:
 #          keys:
 #            - v1-{{ .Branch }}
@@ -68,6 +63,3 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-app
-      - build-docker:
-          requires:
-            - build-app
