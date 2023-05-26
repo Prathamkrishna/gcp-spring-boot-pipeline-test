@@ -24,15 +24,6 @@ jobs:
           name: Build
           command: ./mvnw clean install
       - run:
-          name: Copy to machine state
-          command: |
-            mkdir app
-            cp target/full-pipeline-app-0.0.1-SNAPSHOT.jar app/
-            ls app/
-      - run:
-          name: Check docker version
-          command: docker -v
-      - run:
           name: Build application Docker image
           command: |
             docker build -t app .
