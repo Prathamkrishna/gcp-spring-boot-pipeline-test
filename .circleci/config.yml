@@ -55,7 +55,7 @@ jobs:
       - run:
           name: Deploy to Kubernetes
           command: |
-            kubectl run nginx --image=nginx
+            kubectl run nginx --image=$dockerhubimage
 #            envsubst < ${HOME}/project/k8s.yml > ${HOME}/patched_k8s.yml
 #            kubectl apply -f ${HOME}/patched_k8s.yml
 #            kubectl rollout status deployment/${PROJECT_NAME}
