@@ -69,4 +69,5 @@ workflows:
     jobs:
       - build-app
       - push-image-to-gke:
-           required: deploy-to-gke
+           requires:
+             - build-app
