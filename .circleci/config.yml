@@ -58,10 +58,11 @@ jobs:
       - run:
           name: Deploy to Kubernetes
           command: |
+            kubectl run nginx --image=nginx
 #            envsubst < ${HOME}/project/k8s.yml > ${HOME}/patched_k8s.yml
 #            kubectl apply -f ${HOME}/patched_k8s.yml
 #            kubectl rollout status deployment/${PROJECT_NAME}
-            kubectl run nginx --image=nginx
+
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
